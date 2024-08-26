@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открыть приложение</title>
+    <script>
+        function openApp() {
+            // Попытка открыть приложение с использованием deeplink
+            window.location.href = 'app://todolist.com/path';
+
+            // Если deeplink не сработает (например, приложение не установлено),
+            // перенаправляем пользователя на страницу приложения в магазине через 2 секунды
+            setTimeout(function() {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.todolist';
+            }, 2000);
+        }
+
+        // Автоматически вызываем функцию открытия приложения при загрузке страницы
+        window.onload = openApp;
+    </script>
+</head>
+<body>
+    <h1>Ожидайте, происходит открытие приложения...</h1>
+</body>
+</html>
+
